@@ -6,7 +6,7 @@ First the GATK output needs to be parsed (parseVCF.sh) to put the variant inform
 code (GenomeViz.R). So far GENE_NAME cannot be included but this is a TODO.
 The visualizing code (GenomeViz.R) assumes that about 4 Million high quality (PASS) variants are reported in the VCF file. If 
 significantly more or less variants are reported the hilbert curve level (standard is 11) needs to be increased (to 12) or 
-decreased (to 10) in the code (GenomeViz.R).
+decreased (to 10) in the code (GenomeViz.R). At a certain point a list of variants will be displayed and the user will be asked to select one of them as "focus variant". This focus variant will then be displayed in the last frame.
 
 The output is a series of .png files plotting the variants in hilbert representation in different zoom stages (corresponding to 
 hilbert levels 0-11). Each zoom stage is represented with and without focus rectangle.
