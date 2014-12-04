@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 args=commandArgs(trailingOnly = TRUE)
-if (length(args)<2){stop("2 parameters needed: 1. Sample ID which is part of the VCF file name; 2. Absolute path to analysis directory containing a folder 'VCF' which in turn contains the VCF file.")}
+if (length(args)<2){stop("2 parameters needed: 1. Sample ID which is part of the VCF file name; 2. Absolute path to analysis directory containing a folder 'VCF' which in turn contains the parsed VCF file ending with '_parsed.vcf'.")}
 
 library(data.table)
 library(ggplot2)
