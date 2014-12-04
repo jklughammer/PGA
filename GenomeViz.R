@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 args=commandArgs(trailingOnly = TRUE)
-if (length(args)<2){stop("2 parameters needed: 1. Sample ID which is part of the VCF file name; 2. Absolute path to analysis directory containing a folder 'VCF' which in turn contains the parsed VCF file ending with '_parsed.vcf'.")}
+if (length(args)<2){stop("2 parameters needed: 1. Sample ID which is part of the VCF file name; 2. Absolute path to analysis directory containing a folder 'VCF' which in turn contains the VCF file.")}
 
 library(data.table)
 library(ggplot2)
@@ -22,7 +22,7 @@ Hilbert <- function(level=5, x=0, y=0, xi=1, xj=0, yi=0, yj=1) {
 }
 
 sample=args[1]  #e.g. sample="PGA_0002"
-dir=args[2]    #e.g. VCF=fread(paste0("/fhgfs/groups/lab_bock/jklughammer/projects/otherProjects/PGA/)
+dir=args[2]    #e.g. dir="/fhgfs/groups/lab_bock/jklughammer/projects/otherProjects/PGA/"
 
 message("Now reading the VCF file")
 file=system(paste0("ls VCF/*",sample,"_parsed.vcf"),intern=TRUE)
