@@ -1,6 +1,8 @@
 PGA
 ===
-
+####Display genome-wide variant calls using the a hilbert-curve representation.
+![alt text](https://github.com/jklughammer/PGA/blob/master/PGA_0002/PGA_0002_2.gif "Logo Title Text 1") 
+####What does it do exactly?
 So far this repository contains code to produce a hilbert curve based representation of genomic variants identified by GATK.
 First the GATK output needs to be parsed (parseVCF.sh) to put the variant information in a format needed for the visualization 
 code (GenomeViz.R). So far GENE_NAME cannot be included but this is a TODO.
@@ -15,3 +17,4 @@ Sample_legend.png.
 
 The .png files can be loaded in an animated gif maker (e.g. http://sourceforge.net/projects/gifapp/) and put together as 
 an animated gif. 1 second per frame has been found to be a good speed.    
+
