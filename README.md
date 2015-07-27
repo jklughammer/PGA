@@ -2,6 +2,9 @@ PGA
 ===
 ####Display genome-wide variant calls using the a hilbert-curve representation.
 ![alt text](https://github.com/jklughammer/PGA/blob/master/PGA_0002/PGA_0002_2.gif "Logo Title Text 1") 
+
+To find out the meaning of the different colours, check out the  [legend](https://github.com/jklughammer/PGA/blob/master/PGA_0002/PGA_0002_legend.png).
+
 ####What does it do exactly?
 So far this repository contains code to produce a hilbert curve based representation of genomic variants identified by GATK.
 First the GATK output needs to be parsed (parseVCF.sh) to put the variant information in a format needed for the visualization 
