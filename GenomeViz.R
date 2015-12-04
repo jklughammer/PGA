@@ -23,6 +23,7 @@ Hilbert <- function(level=5, x=0, y=0, xi=1, xj=0, yi=0, yj=1) {
 
 sample=args[1]  #e.g. sample="PGA_0002"
 dir=args[2]    #e.g. dir="/fhgfs/groups/lab_bock/jklughammer/projects/otherProjects/PGA/"
+setwd(dir)
 
 message("Now reading the VCF file")
 file=system(paste0("ls VCF/*",sample,"_parsed.vcf"),intern=TRUE)
@@ -33,6 +34,8 @@ setnames(VCF,names(VCF),c("CHROM","POS","ID","REF","ALT","QUAL","FILTER","EFFECT
 message("Now filtering for high quality variants")
 VCF_pass=VCF[FILTER=="PASS"]
 VCF_pass[,loc:=c(1:nrow(VCF_pass)),]
+VCF_pass[,FILTER:=NULL,]
+#write.table(VCF_pass,sub(".vcf","_pass.vcf",file),sep="\t",quote=FALSE,row.names=FALSE)
 
 message("Now calculating or loading hilbert curve")
 if (file.exists("h11.tsv")){h11=read.table("h11.tsv",sep="\t",header=TRUE)}else{
@@ -72,6 +75,9 @@ setkey(Effects_col,"EFFECT")
 setkey(VCF_pass,"EFFECT")
 VCF_col=merge(VCF_pass,Effects_col,"EFFECT")
 VCF_col=VCF_col[order(loc)]
+VCF_col[,pos_x:=NULL,]
+VCF_col[,pos_y:=NULL,]
+#write.table(VCF_col,sub(".vcf","_loc.vcf",file),sep="\t",quote=FALSE,row.names=FALSE)
 
 #actually plot the hilbert curve zooming
 message("Start plotting...")
